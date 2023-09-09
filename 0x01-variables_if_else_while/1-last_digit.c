@@ -18,6 +18,8 @@ int main(void)
 	sprintf(n_array, "%d", n);
 	length = strlen(n_array);
 	digit = n_array[length - 1] - '0';
+	if (n < 0)
+		digit = -digit;
 	if (digit > 5)
 		printf("Last digit of %d is %d and is greater than 5\n", n, digit);
 	else if (digit == 0)
