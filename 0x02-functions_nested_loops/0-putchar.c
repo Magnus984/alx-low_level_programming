@@ -1,4 +1,6 @@
 #include "main.h"
+#include <unistd.h>
+#include <fnctl.h>
 /**
  * main - Entry point
  *
