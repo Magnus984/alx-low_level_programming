@@ -7,11 +7,14 @@
  */
 int main(void)
 {
-	int i;
-	char output[8] = {'_', 'p', 'u', 't', 'c', 'h', 'a', 'r'};
-
-	for (i = 0; i < 8; i++)
-		_putchar(output[i]);
-	return (0);
+	_putchar('_');
+	_putchar('p');
+	_putchar('u');
+	_putchar('t');
+	_putchar('c');
+	_putchar('h');
+	_putchar('a');
+	_putchar('r');
+	_putchar('\n');
 }
 
