@@ -2,6 +2,7 @@
 
 /**
  * _abs - computes the absolute value of  a number
+ * @n: parameter input
  *
  * Return: Always 0 (Success)
  */
