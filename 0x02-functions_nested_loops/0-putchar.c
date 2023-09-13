@@ -1,4 +1,4 @@
-#include "_putchar.c"
+#include "main.h"
 
 /**
  * main - Entry point
@@ -7,15 +7,13 @@
  */
 int main(void)
 {
-	_putchar('_');
-	_putchar('p');
-	_putchar('u');
-	_putchar('t');
-	_putchar('c');
-	_putchar('h');
-	_putchar('a');
-	_putchar('r');
+	char data[8] = {'_', 'p', 'u', 't', 'c', 'h', 'a', 'r'};
+	int i;
+
+	for (i = 0; i < 8; i++)
+		_putchar(data[i]);
 	_putchar('\n');
 
 	return (0);
 }
+
