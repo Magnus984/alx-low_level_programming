@@ -1,5 +1,5 @@
 /**
- * main - function that checks uppercase character
+ * _isupper - function that checks uppercase character
  * @c: input varaible for function
  *
  * Return: 1 if c is uppercase otherwise 0;
