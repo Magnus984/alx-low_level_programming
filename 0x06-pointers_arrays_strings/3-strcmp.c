@@ -5,37 +5,21 @@
  * @s1: pointer parameter
  * @s2: pointer parameter
  *
- * Return: integer values(1, 0, -1)
+ * Return: integer values
  */
 int _strcmp(char *s1, char *s2)
 {
-	int i, j;
+	int i, res = 0;
 
-	i = 0;
-	j = 0;
-
-	while (*(s1 + i) != '\0')
+	while (res == 0)
+	{
+		if ((*(s1 + i) == '\0') && (*(s2 + i) == '\0'))
+			break;
+		res = *(s1 + i) - *(s2 + i);
 		i++;
-	while (*(s2 + j) != '\0')
-		j++;
+	}
 
-	if (i == j)
-	{
-		int k;
-
-		for (k = 0; k < i; k++)
-			if (s1[k] == s2[k])
-				continue;
-		if (k >= i)
-			return (0);
-	}
-	else if (i < j)
-	{
-		return (-1);
-	}
-	else if (i > j)
-	{
-		return (1);
-	}
-	return (0);
+	return (res);
 }
+
+
