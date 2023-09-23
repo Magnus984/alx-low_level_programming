@@ -14,7 +14,7 @@ int _strcmp(char *s1, char *s2)
 	i = 0;
 	j = 0;
 
-	while ( *(s1 + i) != '\0')
+	while (*(s1 + i) != '\0')
 		i++;
 	while (*(s2 + j) != '\0')
 		j++;
@@ -22,6 +22,7 @@ int _strcmp(char *s1, char *s2)
 	if (i == j)
 	{
 		int k;
+
 		for (k = 0; k < i; k++)
 			if (s1[k] == s2[k])
 				continue;
