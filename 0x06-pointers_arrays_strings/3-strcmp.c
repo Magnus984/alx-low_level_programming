@@ -2,7 +2,7 @@
 
 /**
  * _strcmp - compares two strings
- * @s1: pointer parameter 
+ * @s1: pointer parameter
  * @s2: pointer parameter
  *
  * Return: integer value
