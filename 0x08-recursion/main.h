@@ -9,5 +9,7 @@ int factorial(int n);
 int _pow_recursion(int x, int y);
 int supportive_function(int number, int sqrt);
 int _sqrt_recursion(int n);
+int support_function(unsigned int n, unsigned int a);
+int is_prime_number(int n);
 
 #endif
