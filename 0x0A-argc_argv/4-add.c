@@ -4,8 +4,8 @@
 
 /**
  * main - adds numbers
- * @argc - number of command line arguments
- * @argv - array of command line arguments
+ * @argc: number of command line arguments
+ * @argv: array of command line arguments
  *
  * Return: 0 on success
  */
