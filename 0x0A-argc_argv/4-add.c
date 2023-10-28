@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 		for (i = 1; i < argc; i++)
 		{
 			pro_arg = atoi(argv[i]);
-			if (!pro_arg)
+			if (!pro_arg || pro_arg < 0)
 			{
 				printf("Error\n");
 				return (1);
