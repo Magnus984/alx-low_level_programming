@@ -4,8 +4,8 @@
 
 /**
  * main - adds positive numbers
- * argc: argument count
- * argv: array of arguments
+ * @argc: argument count
+ * @argv: array of arguments
  *
  * Return: 0 on Success
  */
@@ -16,16 +16,19 @@ int main(int argc, char *argv[])
 	sum = 0;
 	if (argc == 1)
 		printf("%d\n", 0);
-	for (i = 1; i < argc; i++)
+	else
 	{
-		pro_arg = atoi(argv[i]);
-		if (!pro_arg)
+		for (i = 1; i < argc; i++)
 		{
-			printf("Error\n");
-			return (1);
+			pro_arg = atoi(argv[i]);
+			if (!pro_arg)
+			{
+				printf("Error\n");
+				return (1);
+			}
+			sum += pro_arg;
 		}
-		sum += pro_arg;
+		printf("%d\n", sum);
 	}
-	printf("%d\n", sum);
 	return (0);
 }
