@@ -11,7 +11,7 @@ size_t listint_len(const listint_t *h)
 {
 	unsigned int len;
 	const listint_t *ptr;
-	
+
 	len = 0;
 	if (h == NULL)
 		return (len);
