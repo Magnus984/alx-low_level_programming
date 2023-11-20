@@ -14,7 +14,7 @@ size_t print_listint(const listint_t *h)
 
 	node_num = 0;
 	if (h == NULL)
-		exit(EXIT_FAILURE);
+		return (node_num);
 	ptr = h;
 	while (ptr != NULL)
 	{
