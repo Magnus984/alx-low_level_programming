@@ -25,7 +25,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		ptr->next = ptr2;
 		return (ptr2);
 	}
-	else if (idx != 1)
+	else if (idx > 1)
 	{
 		while (idx != 1)
 		{
@@ -37,5 +37,4 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (ptr2);
 	}
 	return (NULL);
-
 }
