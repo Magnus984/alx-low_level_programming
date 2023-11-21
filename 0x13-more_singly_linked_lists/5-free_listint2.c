@@ -10,6 +10,8 @@ void free_listint2(listint_t **head)
 {
 	listint_t *current, *ptr;
 
+	if (head == NULL || *head == NULL)
+		return (NULL):
 	current = *head;
 	while (current != NULL)
 	{
