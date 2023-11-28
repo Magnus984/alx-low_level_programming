@@ -39,7 +39,10 @@ int main(int argc, char *argv[])
 		close_two = close(fd_two);
 		if (close_two == -1)
 			close_dp(fd_two);
+		free(buffer);
 	}
+	else
+		return (-1);
 	free(buffer);
 	return (0);
 }
