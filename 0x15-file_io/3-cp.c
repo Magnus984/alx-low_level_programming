@@ -19,25 +19,23 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 	fd_one = open(argv[1], O_RDONLY);
+	if (fd_one == -1)
+		fd_one_read_error(argv[1]);
 	if (buffer)
 	{
 		bytes_read = read(fd_one, buffer, 1024);
-		if (fd_one == -1 || bytes_read == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
-			exit(98);
-		}
+		if (bytes_read == -1)
+			fd_one_read_error(argv[1]);
 		close_one = close(fd_one);
 		if (close_one == -1)
 			close_dp(fd_one);
 
 		fd_two = open(argv[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
+		if (fd_two == -1)
+			fd_two_write_error(argv[2]);
 		bytes_written = write(fd_two, buffer, bytes_read);
-		if (fd_two == -1 || bytes_written == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			exit(99);
-		}
+		if (bytes_written == -1)
+			fd_two_write_error(argv[2]);
 		close_two = close(fd_two);
 		if (close_two == -1)
 			close_dp(fd_two);
@@ -56,4 +54,30 @@ void close_dp(int fd)
 {
 	dprintf(STDERR_FILENO, "Can't close fd %d\n", fd);
 	exit(100);
+}
+
+/**
+ * fd_one_read_error - handles read error
+ * and open file error
+ * @arg: argument
+ *
+ * Return: no return value
+ */
+void fd_one_read_error(char *arg)
+{
+	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", arg);
+	exit(98);
+}
+
+/**
+ * fd_two_write_error - handles write error and open
+ * file error
+ * @arg2: argument
+ *
+ * Return: no return value
+ */
+void fd_two_write_error(char *arg2)
+{
+	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", arg2);
+	exit(99);
 }
