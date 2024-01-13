@@ -11,13 +11,13 @@
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	dlistint_t *travPtr, *temp;
-	dlistint_t *insertPtr = malloc(sizeof(dlistint_t));
+	dlistint_t *travPtr, *temp, *insertPtr;
 
-	if (!insertPtr)
-		return (NULL);
 	if (idx < dlistint_len(*h))
 	{
+		insertPtr = malloc(sizeof(dlistint_t));
+		if (!insertPtr)
+			return (NULL);
 		insertPtr->prev = NULL;
 		insertPtr->n = n;
 		insertPtr->next = NULL;
@@ -44,7 +44,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			return (insertPtr);
 		}
 	}
-	free(insertPtr);
 	return (NULL);
 }
 /**
