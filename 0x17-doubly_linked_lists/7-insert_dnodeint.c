@@ -16,29 +16,53 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	if (!insertPtr)
 		return (NULL);
-	insertPtr->prev = NULL;
-	insertPtr->n = n;
-	insertPtr->next = NULL;
-	if (idx == 1)
+	if (idx < dlistint_len(*h))
 	{
-		insertPtr->next = *(h);
-		(*h)->prev = insertPtr;
-		*h = insertPtr;
-	}
-	else if (idx > 1)
-	{
-		travPtr = *h;
-		while (idx != 1)
+		insertPtr->prev = NULL;
+		insertPtr->n = n;
+		insertPtr->next = NULL;
+		if (idx == 0)
 		{
-			travPtr = travPtr->next;
-			idx--;
+			insertPtr->next = *(h);
+			(*h)->prev = insertPtr;
+			*h = insertPtr;
 		}
-		temp = travPtr->next;
-		travPtr->next = insertPtr;
-		insertPtr->prev = travPtr;
-		insertPtr->next = temp;
-		temp->prev = insertPtr;
-		return (insertPtr);
+		else if (idx > 1)
+		{
+			travPtr = *h;
+			while (idx != 1)
+			{
+				travPtr = travPtr->next;
+				idx--;
+			}
+			temp = travPtr->next;
+			travPtr->next = insertPtr;
+			insertPtr->prev = travPtr;
+			insertPtr->next = temp;
+			temp->prev = insertPtr;
+			return (insertPtr);
+		}
 	}
+	free(insertPtr);
 	return (NULL);
+}
+/**
+ * dlistint_len - calculates number of elements in
+ * a doubly linked list
+ * @h: head node
+ *
+ * Return: number of elements in list
+ */
+size_t dlistint_len(const dlistint_t *h)
+{
+	const dlistint_t *travPtr;
+	size_t nodeNum = 0;
+
+	travPtr = h;
+	while (travPtr != NULL)
+	{
+		nodeNum++;
+		travPtr = travPtr->next;
+	}
+	return (nodeNum);
 }
