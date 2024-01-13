@@ -26,6 +26,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			insertPtr->next = *(h);
 			(*h)->prev = insertPtr;
 			*h = insertPtr;
+			return (insertPtr);
 		}
 		else if (idx > 1)
 		{
