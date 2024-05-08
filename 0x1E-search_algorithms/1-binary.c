@@ -50,6 +50,6 @@ void print_array(int L, int R, int *array)
 	{
 		if (i == R)
 			printf("%d\n", array[i]);
-		printf("%d,", array[i]);
+		printf("%d, ", array[i]);
 	}
 }
